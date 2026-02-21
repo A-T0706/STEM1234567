@@ -1,290 +1,189 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
+<!DOCTYPE html>
+
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Advanced Website</title>
-  <meta name="description" content="An advanced, responsive website built with HTML, CSS, and JavaScript." />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Website</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* ===== NAVBAR ===== */
+.navbar{
+  background:#111;
+  padding:15px 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.navbar h2{
+  color:white;
+}
+
+.navbar a{
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.navbar a:hover{
+  color:#4da3ff;
+}
+
+/* ===== SLIDER ===== */
+.slider{
+  width:100%;
+  height:420px;
+  overflow:hidden;
+  position:relative;
+}
+
+.slider img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:none;
+}
+
+.slider img.active{
+  display:block;
+}
+
+/* ===== SECTIONS ===== */
+.container{
+  width:85%;
+  max-width:1000px;
+  margin:40px auto;
+}
+
+.about{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  margin-top:30px;
+}
+
+.about img{
+  width:300px;
+  border-radius:15px;
+}
+
+/* ===== PHOTO GRID ===== */
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:40px;
+}
+
+.photo-grid img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  transition:0.3s;
+}
+
+.photo-grid img:hover{
+  transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin-top:50px;
+}
+
+</style>
+
 </head>
 
 <body>
-  <!-- Top progress bar -->
-  <div class="progress" id="progress"></div>
 
-  <!-- NAV -->
-  <header class="header" id="top">
-    <nav class="nav">
-      <a class="brand" href="#top" aria-label="Go to top">
-        <span class="brand-dot"></span>
-        <span>My Site</span>
-      </a>
+<!-- NAVBAR -->
 
-      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-        <span class="hamburger"></span>
-      </button>
+<div class="navbar">
+  <h2>My Site</h2>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="#">About</a>
+  </div>
+</div>
 
-      <div class="nav-links" id="navLinks">
-        <a class="nav-link" href="#home">Home</a>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#gallery">Gallery</a>
-        <a class="nav-link" href="#contact">Contact</a>
+<!-- IMAGE SLIDER -->
 
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
-          <span class="toggle-icon" aria-hidden="true">☾</span>
-        </button>
-      </div>
-    </nav>
-  </header>
+<div class="slider">
+  <img class="active" src="images/slider1.jpg">
+  <img src="images/slider2.jpg">
+  <img src="images/slider3.jpg">
+</div>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-bg" aria-hidden="true"></div>
+<div class="container">
 
-      <div class="container hero-grid">
-        <div class="hero-left reveal">
-          <p class="pill">HTML • CSS • JavaScript • GitHub Pages</p>
-          <h1 class="hero-title">
-            A clean, advanced website<br />
-            built for class — but looks professional.
-          </h1>
-          <p class="hero-sub">
-            Responsive layout, animated sections, theme toggle, slider, modal images, and smooth navigation.
-          </p>
+  <!-- ABOUT SECTION -->
 
-          <div class="hero-actions">
-            <a class="btn primary" href="#gallery">View Gallery</a>
-            <a class="btn ghost" href="#projects">See Sections</a>
-          </div>
+  <h1>Welcome</h1>
+  <p>This is my website project hosted using GitHub Pages.</p>
 
-          <div class="stats">
-            <div class="stat">
-              <div class="stat-num" data-count="3">0</div>
-              <div class="stat-label">Slider images</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num" data-count="8">0</div>
-              <div class="stat-label">Total images</div>
-            </div>
-            <div class="stat">
-              <div class="stat-num" data-count="100">0</div>
-              <div class="stat-label">Customizable</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-right reveal">
-          <div class="slider" aria-label="Image slider">
-            <div class="slider-track" id="sliderTrack">
-              <img src="images/slider1.jpg" alt="Slide 1" />
-              <img src="images/slider2.jpg" alt="Slide 2" />
-              <img src="images/slider3.jpg" alt="Slide 3" />
-            </div>
-
-            <div class="slider-ui">
-              <button class="icon-btn" id="prevSlide" aria-label="Previous slide">‹</button>
-              <div class="dots" id="dots" aria-label="Slide dots"></div>
-              <button class="icon-btn" id="nextSlide" aria-label="Next slide">›</button>
-            </div>
-          </div>
-
-          <div class="mini-card">
-            <div class="mini-left">
-              <div class="mini-title">Live on GitHub Pages</div>
-              <div class="mini-sub">Fast + simple hosting</div>
-            </div>
-            <span class="badge">Deployed</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>About</h2>
-          <p>Two-column layout with real spacing, clean typography, and responsive design.</p>
-        </div>
-
-        <div class="about-grid">
-          <article class="card reveal">
-            <h3>What this site shows</h3>
-            <ul class="checklist">
-              <li>Modern navbar + mobile menu</li>
-              <li>Theme toggle (dark/light)</li>
-              <li>Image slider with controls</li>
-              <li>Gallery with modal viewer</li>
-              <li>Scroll animations + progress bar</li>
-            </ul>
-            <div class="card-actions">
-              <a class="btn small primary" href="#projects">Next: Projects</a>
-              <a class="btn small ghost" href="#contact">Contact</a>
-            </div>
-          </article>
-
-          <div class="about-photos reveal">
-            <img class="rounded shadow" src="images/about1.jpg" alt="About image 1" />
-            <img class="rounded shadow" src="images/about2.jpg" alt="About image 2" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Projects</h2>
-          <p>Cards that scale nicely on mobile and look “portfolio level.”</p>
-        </div>
-
-        <div class="cards-3">
-          <article class="card reveal">
-            <h3>Project 1</h3>
-            <p>Describe something you built (or what you’re learning).</p>
-            <div class="tags">
-              <span class="tag">UI</span><span class="tag">Design</span><span class="tag">Layout</span>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <h3>Project 2</h3>
-            <p>Explain a feature (slider, gallery, theme toggle, etc.).</p>
-            <div class="tags">
-              <span class="tag">JS</span><span class="tag">Interactions</span><span class="tag">UX</span>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <h3>Project 3</h3>
-            <p>Talk about hosting with GitHub Pages and repo structure.</p>
-            <div class="tags">
-              <span class="tag">GitHub</span><span class="tag">Pages</span><span class="tag">Deploy</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
-    <section class="section" id="gallery">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Gallery</h2>
-          <p>Click any image to open a clean modal viewer.</p>
-        </div>
-
-        <div class="gallery-grid">
-          <button class="tile reveal" data-full="images/g1.jpg" data-alt="g1">
-            <img src="images/g1.jpg" alt="g1" />
-            <span>g1.jpg</span>
-          </button>
-
-          <button class="tile reveal" data-full="images/h1.jpg" data-alt="h1">
-            <img src="images/h1.jpg" alt="h1" />
-            <span>h1.jpg</span>
-          </button>
-
-          <button class="tile reveal" data-full="images/w1.jpeg" data-alt="w1">
-            <img src="images/w1.jpeg" alt="w1" />
-            <span>w1.jpeg</span>
-          </button>
-
-          <button class="tile reveal" data-full="images/slider1.jpg" data-alt="slider1">
-            <img src="images/slider1.jpg" alt="slider1" />
-            <span>slider1.jpg</span>
-          </button>
-
-          <button class="tile reveal" data-full="images/slider2.jpg" data-alt="slider2">
-            <img src="images/slider2.jpg" alt="slider2" />
-            <span>slider2.jpg</span>
-          </button>
-
-          <button class="tile reveal" data-full="images/slider3.jpg" data-alt="slider3">
-            <img src="images/slider3.jpg" alt="slider3" />
-            <span>slider3.jpg</span>
-          </button>
-
-          <button class="tile reveal" data-full="images/about1.jpg" data-alt="about1">
-            <img src="images/about1.jpg" alt="about1" />
-            <span>about1.jpg</span>
-          </button>
-
-          <button class="tile reveal" data-full="images/about2.jpg" data-alt="about2">
-            <img src="images/about2.jpg" alt="about2" />
-            <span>about2.jpg</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Contact</h2>
-          <p>This form is front-end only (no backend), but looks legit for class.</p>
-        </div>
-
-        <div class="contact-grid">
-          <form class="card reveal" id="contactForm">
-            <label>
-              Name
-              <input class="input" type="text" name="name" placeholder="Your name" required />
-            </label>
-            <label>
-              Message
-              <textarea class="input" name="message" rows="5" placeholder="Say something..." required></textarea>
-            </label>
-            <button class="btn primary" type="submit">Send</button>
-            <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
-          </form>
-
-          <div class="card reveal">
-            <h3>Quick notes</h3>
-            <p>
-              If you want, you can add a real email link, socials, or a “Sources” section for your assignment.
-            </p>
-            <div class="callouts">
-              <div class="callout">
-                <div class="callout-title">Tip</div>
-                <div class="callout-text">Use <code>images/</code> folder paths exactly.</div>
-              </div>
-              <div class="callout">
-                <div class="callout-title">Tip</div>
-                <div class="callout-text">GitHub Pages is case-sensitive.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>
-        <div class="footer-brand">My Site</div>
-        <div class="muted">Built with HTML/CSS/JS • Hosted on GitHub Pages</div>
-      </div>
-      <a class="btn small ghost" href="#top">Back to top ↑</a>
-    </div>
-  </footer>
-
-  <!-- MODAL -->
-  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Image preview">
-    <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="modal-content" role="document">
-      <button class="icon-btn modal-close" id="modalClose" aria-label="Close">✕</button>
-      <img id="modalImg" alt="" />
-      <div class="modal-caption" id="modalCaption"></div>
+  <div class="about">
+    <img src="images/about1.jpg">
+    <div>
+      <h2>About This Site</h2>
+      <p>
+      I created this website using HTML and CSS and published it online using GitHub.
+      This page shows images, sections, and a slideshow.
+      </p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- EXTRA IMAGE -->
+
+  <div class="about">
+    <img src="images/about2.jpg">
+    <div>
+      <h2>More Content</h2>
+      <p>
+      Websites are built using HTML for structure and CSS for design.
+      Hosting allows anyone on the internet to view the page.
+      </p>
+    </div>
+  </div>
+
+  <!-- PHOTO GRID -->
+
+  <h2 style="margin-top:40px;">Photos</h2>
+
+  <div class="photo-grid">
+    <img src="images/g1.jpg">
+    <img src="images/h1.jpg">
+    <img src="images/w1.jpeg">
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 My Website</p>
+</footer>
+
+<!-- SLIDER SCRIPT -->
+
+<script>
+let slides = document.querySelectorAll(".slider img");
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 3000);
+</script>
+
 </body>
 </html>
