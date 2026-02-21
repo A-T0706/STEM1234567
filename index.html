@@ -1,50 +1,189 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Website</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Website</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* ===== NAVBAR ===== */
+.navbar{
+  background:#111;
+  padding:15px 25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.navbar h2{
+  color:white;
+}
+
+.navbar a{
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.navbar a:hover{
+  color:#4da3ff;
+}
+
+/* ===== SLIDER ===== */
+.slider{
+  width:100%;
+  height:420px;
+  overflow:hidden;
+  position:relative;
+}
+
+.slider img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:none;
+}
+
+.slider img.active{
+  display:block;
+}
+
+/* ===== SECTIONS ===== */
+.container{
+  width:85%;
+  max-width:1000px;
+  margin:40px auto;
+}
+
+.about{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  margin-top:30px;
+}
+
+.about img{
+  width:300px;
+  border-radius:15px;
+}
+
+/* ===== PHOTO GRID ===== */
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:40px;
+}
+
+.photo-grid img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  transition:0.3s;
+}
+
+.photo-grid img:hover{
+  transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin-top:50px;
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <nav class="nav">
-    <a class="brand" href="index.html">My Site</a>
-    <div class="links">
-      <a href="index.html">Home</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="about.html">About</a>
-    </div>
-  </nav>
+<!-- NAVBAR -->
 
-  <header class="hero">
-    <h1>Welcome</h1>
-    <p>A simple website made with GitHub Pages.</p>
-    <a class="btn" href="gallery.html">Go to Gallery</a>
-  </header>
+<div class="navbar">
+  <h2>My Site</h2>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="#">About</a>
+  </div>
+</div>
 
-  <main class="container">
-    <section class="card">
-      <h2>What this site is</h2>
+<!-- IMAGE SLIDER -->
+
+<div class="slider">
+  <img class="active" src="images/slider1.jpg">
+  <img src="images/slider2.jpg">
+  <img src="images/slider3.jpg">
+</div>
+
+<div class="container">
+
+  <!-- ABOUT SECTION -->
+
+  <h1>Welcome</h1>
+  <p>This is my website project hosted using GitHub Pages.</p>
+
+  <div class="about">
+    <img src="images/about1.jpg">
+    <div>
+      <h2>About This Site</h2>
       <p>
-        This is a basic multi-page website (Home + Gallery + About).
-        You can customize the text, colors, and images.
+      I created this website using HTML and CSS and published it online using GitHub.
+      This page shows images, sections, and a slideshow.
       </p>
-    </section>
+    </div>
+  </div>
 
-    <section class="card">
-      <h2>What to do next</h2>
-      <ul>
-        <li>Edit the titles and text</li>
-        <li>Add images to the gallery</li>
-        <li>Publish using GitHub Pages</li>
-      </ul>
-    </section>
-  </main>
+  <!-- EXTRA IMAGE -->
 
-  <footer class="footer">
-    <p>© 2026 My Website</p>
-  </footer>
+  <div class="about">
+    <img src="images/about2.jpg">
+    <div>
+      <h2>More Content</h2>
+      <p>
+      Websites are built using HTML for structure and CSS for design.
+      Hosting allows anyone on the internet to view the page.
+      </p>
+    </div>
+  </div>
+
+  <!-- PHOTO GRID -->
+
+  <h2 style="margin-top:40px;">Photos</h2>
+
+  <div class="photo-grid">
+    <img src="images/g1.jpg">
+    <img src="images/h1.jpg">
+    <img src="images/w1.jpeg">
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 My Website</p>
+</footer>
+
+<!-- SLIDER SCRIPT -->
+
+<script>
+let slides = document.querySelectorAll(".slider img");
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 3000);
+</script>
 
 </body>
 </html>
